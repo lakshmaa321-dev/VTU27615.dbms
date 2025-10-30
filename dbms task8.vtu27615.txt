@@ -1,0 +1,95 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\Admin> mongosh
+Current Mongosh Log ID: 68ecbd17c0d8c2abe9cebea3
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.8
+Using MongoDB:          8.2.1
+Using Mongosh:          2.5.8
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+------
+   The server generated these startup warnings when booting
+   2025-10-13T14:10:11.211+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> use hemanth
+switched to db hemanth
+hemanth> db.createCollection("cricketboard")
+{ ok: 1 }
+hemanth> db. cricketboard. insertOne({BoardID:"BIDO1", Name:"chennai cricket board",Address:"chennai",phone:9566903778});
+{
+  acknowledged: true,
+  insertedId: ObjectId('68ecbf66c0d8c2abe9cebea4')
+}
+hemanth> db. cricketboard. find().pretty()
+[
+  {
+    _id: ObjectId('68ecbf66c0d8c2abe9cebea4'),
+    BoardID: 'BIDO1',
+    Name: 'chennai cricket board',
+    Address: 'chennai',
+    phone: 9566903778
+  }
+]
+hemanth> db. cricketboard. insertMany([{BoardID:"BIDO2", Name:"Tiruvallur cricket board", Address:"chennai",phone:987654320}]);
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('68ecc11bc0d8c2abe9cebea5') }
+}
+hemanth> db. cricketboard. insertMany([{BoardID:"BIDO3", Name:"avadi cricket board", Address:"chennai",phone:987654320}]);
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('68ecc148c0d8c2abe9cebea6') }
+}
+hemanth> db. cricketboard. insertMany([{BoardID:"BIDO4", Name:"velluru cricket board", Address:"chennai",phone:987654320}]);
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('68ecc162c0d8c2abe9cebea7') }
+}
+hemanth> db. cricketboard. insertMany([{BoardID:"BIDO5", Name:"ambattur cricket board", Address:"chennai",phone:987664320}]);
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('68ecc17fc0d8c2abe9cebea8') }
+}
+hemanth> db. cricketboard. deleteOne({BoardID:"BIDO4"})
+{ acknowledged: true, deletedCount: 1 }
+hemanth> db. cricketboard. find(). pretty()
+[
+  {
+    _id: ObjectId('68ecbf66c0d8c2abe9cebea4'),
+    BoardID: 'BIDO1',
+    Name: 'chennai cricket board',
+    Address: 'chennai',
+    phone: 9566903778
+  },
+  {
+    _id: ObjectId('68ecc11bc0d8c2abe9cebea5'),
+    BoardID: 'BIDO2',
+    Name: 'Tiruvallur cricket board',
+    Address: 'chennai',
+    phone: 987654320
+  },
+  {
+    _id: ObjectId('68ecc148c0d8c2abe9cebea6'),
+    BoardID: 'BIDO3',
+    Name: 'avadi cricket board',
+    Address: 'chennai',
+    phone: 987654320
+  },
+  {
+    _id: ObjectId('68ecc17fc0d8c2abe9cebea8'),
+    BoardID: 'BIDO5',
+    Name: 'ambattur cricket board',
+    Address: 'chennai',
+    phone: 987664320
+  }
+]
+hemanth>
